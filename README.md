@@ -2,11 +2,11 @@
 
 This is a fork of JetBrains Kotlin Multiplatform Library template, suited for the new 
 Nexus Portal Publisher API.
-All new Sonatype Nexus OSSRH registrants since Feb. 1st. 2024 have to use the new API
+All new Sonatype Nexus registrants since Feb. 1st. 2024 have to use the new API
 instead of traditional Maven API over https://central.sonatype.com - while this JetBrains
 project template is still based on the traditional version.
 
-For any newcomers to Sonatype Nexus OSSRH, the JetBrains template is simply not usable.
+For any newcomers to Sonatype Nexus, the JetBrains template is simply not usable.
 
 This fork is to fix that situation, with using [vanniktech/gradle-maven-publish-plugin](https://github.com/vanniktech/gradle-maven-publish-plugin).
 
@@ -60,7 +60,7 @@ The most part of the job is already automated for you. However, deployment to Ma
     ```bash
     gpg --send-keys --keyserver keyserver.ubuntu.com "<your key id>"
     ```
-1. - [ ] If your repository is Sonatype Nexus OSSRH, it will require its ["access token" version of username and password](https://central.sonatype.org/publish/generate-token/) instead of plain OSSRH username and password.
+1. - [ ] If your repository is Sonatype Nexus, it will require its ["access token" version of username and password](https://central.sonatype.org/publish/generate-token/) instead of plain Nexus username and password, so create them.
 1. - [ ] Now you should create secrets available to your GitHub Actions
     1. via `gh` command
     ```bash
