@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-    group = "org.jetbrains.kotlinx.multiplatform-library-template"
+    group = "io.github.atsushieno.multiplatform-library-template-nexus-publisher"
     version = "0.0.1"
 }
 

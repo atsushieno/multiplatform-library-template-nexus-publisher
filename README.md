@@ -1,6 +1,24 @@
-[![official project](http://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+# Multiplatform library template, for Nexus Portal Publisher API
 
-# Multiplatform library template
+This is a fork of JetBrains Kotlin Multiplatform Library template, suited for the new 
+Nexus Portal Publisher API.
+All new Sonatype Nexus OSSRH registrants since Feb. 1st. 2024 have to use the new API
+instead of traditional Maven API over https://central.sonatype.com - while this JetBrains
+project template is still based on the traditional version.
+
+For any newcomers to Sonatype Nexus OSSRH, the JetBrains template is simply not usable.
+
+This fork is to fix that situation, with using [vanniktech/gradle-maven-publish-plugin](https://github.com/vanniktech/gradle-maven-publish-plugin).
+
+Many parts of the original template is still alive. You can try publishing on GitHub Actions
+by manually starting the deployment workflow ("Deploy to central").
+
+You can see what are different from the original template by `diff -ur their-repo this-repo`.
+
+This modified version bumped Gradle version too though, so that the latest stable IDEA
+does not refuse to open because 8.1 is too old for it.
+
+----
 
 ## What is it?
 

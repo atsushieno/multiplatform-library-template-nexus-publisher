@@ -1,7 +1,10 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     id("module.publication")
+    id("com.vanniktech.maven.publish") version "0.28.0"
 }
 
 kotlin {
@@ -35,9 +38,16 @@ kotlin {
 }
 
 android {
-    namespace = "org.jetbrains.kotlinx.multiplatform.library.template"
+    namespace = "io.github.atsushieno.multiplatform.library.template"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    if (project.hasProperty("mavenCentralUsername") ||
+        System.getenv("ORG_GRADLE_PROJECT_mavenCentralUsername") != null)
+        signAllPublications()
 }
