@@ -28,10 +28,11 @@ jobs:
             os: ubuntu-latest
           - target: linuxX64Test
             os: ubuntu-latest
-          - target: testDebugUnitTest
-            os: ubuntu-latest
-          - target: testReleaseUnitTest
-            os: ubuntu-latest
+          # disabled as they take too long time (running non-ATD emulator on GitHub Actions!)
+          #- target: testDebugUnitTest
+          #  os: ubuntu-latest
+          #- target: testReleaseUnitTest
+          #  os: ubuntu-latest
     runs-on: ${{ matrix.os }}
 
     steps:

@@ -10,17 +10,19 @@ plugins {
 publishing {
     // Configure all publications
     publications.withType<MavenPublication> {
+        // disabled https://github.com/vanniktech/gradle-maven-publish-plugin/issues/754
+        /*
         // Stub javadoc.jar artifact
         artifact(tasks.register("${name}JavadocJar", Jar::class) {
             archiveClassifier.set("javadoc")
             archiveAppendix.set(this@withType.name)
-        })
+        })*/
 
         // Provide artifacts information required by Maven Central
         pom {
-            name.set("Kotlin Multiplatform library template")
-            description.set("Dummy library to test deployment to Maven Central")
-            url.set("https://github.com/Kotlin/multiplatform-library-template")
+            name.set("Kotlin Multiplatform library for Nexus Portal Publisher API")
+            description.set("Stub library to test deployment to Maven Central (suited for Sonatype Nexus Portal Publisher API)")
+            url.set("https://github.com/atsushieno/multiplatform-library-template-nexus-publisher")
 
             licenses {
                 license {
@@ -30,22 +32,25 @@ publishing {
             }
             developers {
                 developer {
-                    id.set("JetBrains")
-                    name.set("JetBrains Team")
-                    organization.set("JetBrains")
-                    organizationUrl.set("https://www.jetbrains.com")
+                    id.set("atsushieno")
+                    name.set("Atsushi Eno")
+                    organization.set("atsushieno")
+                    organizationUrl.set("https://atsushieno.github.io")
                 }
             }
             scm {
-                url.set("https://github.com/Kotlin/multiplatform-library-template")
+                url.set("https://github.com/atsushieno/multiplatform-library-template-nexus-publisher")
             }
         }
     }
 }
 
 signing {
-    if (project.hasProperty("signing.gnupg.keyName")) {
+    if (project.hasProperty("mavenCentralUsername") ||
+        System.getenv("ORG_GRADLE_PROJECT_mavenCentralUsername") != null) {
         useGpgCmd()
-        sign(publishing.publications)
+        // It is not perfect (fails at some dependency assertions), better handled as
+        // `signAllPublications()` (as in vanniktech maven publish plugin) at build.gradle.kts.
+        //sign(publishing.publications)
     }
 }
