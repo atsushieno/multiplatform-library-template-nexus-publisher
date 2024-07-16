@@ -11,6 +11,7 @@ publishing {
     // Configure all publications
     publications.withType<MavenPublication> {
         // disabled https://github.com/vanniktech/gradle-maven-publish-plugin/issues/754
+        // and configured at library build.gradle.kts using `JavadocJar.Dokka("dokkaHtml")`.
         /*
         // Stub javadoc.jar artifact
         artifact(tasks.register("${name}JavadocJar", Jar::class) {
