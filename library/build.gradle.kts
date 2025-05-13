@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.atsushieno"
+group = "org.androidaudioplugin"
 version = "1.0.0"
 
 kotlin {
