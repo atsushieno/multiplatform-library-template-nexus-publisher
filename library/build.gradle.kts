@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.kotlin"
+group = "dev.atsushieno"
 version = "1.0.0"
 
 kotlin {
